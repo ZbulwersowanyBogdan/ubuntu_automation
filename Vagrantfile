@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant", disabled: false
   config.vm.provider :virtualbox do |v|
-    v.memory = 512
+    v.memory = 512 #increase to 2048 so the docker container doesn't exit with 137
     v.linked_clone = true
     v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
   end
